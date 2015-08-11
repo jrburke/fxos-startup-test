@@ -8,14 +8,13 @@ This app simulates a certain style of app construction.
 * async script tags loaded by a JS module loader. A script loader is not used in this example, just `<script async>` tags that would be added by a loader. There are three scripts for the three custom elements and a startup.js that does the work to create the final view.
 * A `<template>` tag is used in the `<body>`, to allow a view to initially be coded in the HTML document, but not activated or used until the JS that backs the custom elements have loaded. startup.js clones the template and adds it to the `<body>` once the scripts have loaded. Once that happens, the view is visible and considered complete.
 
-No IndexedDB or worker work is done in this example. The long term goal is that a service worker cache would generate this document so that the initial view, once the JS for the view was loaded, could render without needing that work to be done.
+No IndexedDB or worker work is done in this example. The long term goal is that a service worker cache would provide this document so that the initial view, once the JS for the view was loaded, could be rendered without needing DB work or data-focused workers.
 
 To reflect a real world-ish size of a view and size of CSS styles in play, the Gaia email app's built styles are used as well as a copy of the email app's startup message list view. It is a bit incomplete (missing the bottom buttons) but should be a decent test of a view.
 
 This app is a "certified" app, so it bypasses some checks b2g would normally do for a non-certified app. Hopefully this should not matter for the purposes of this test, and should help reduce some noise of those b2g checks from the the profiles, so that the up front costs of the layout work are more visible.
 
-The `<body>` has a `background-color: transparent;` set on it so that hopefully the startup animation with the app icon is visible and there is no white flash painted before seeing the final view. The view's HTML has a white background color set on it.
-
+The `<body>` has a `background-color: transparent;` set on it so that hopefully the startup animation with the app icon is visible and there is no white flash painted before seeing the final view. The view's div has a white background color set on it.
 
 The profile captures were done via `./profile.sh start -p b2g -t Compositor && ./profile.sh start -p [preallocated app pid]`.
 
