@@ -15,9 +15,11 @@ window.performance.mark('startup.js');
     // Display to user.
     document.body.appendChild(bodyContent);
 
-    document.body.classList.remove('collapsed');
+    // VARIATION CHOICE HERE
     // document.documentElement.style.display = '';
+    // document.body.classList.remove('collapsed');
 
+    // perf mark when fullyLoaded, may use for some raptor tests.
     perf.mark('fullyLoaded');
   }
 
