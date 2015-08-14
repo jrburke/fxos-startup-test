@@ -33,6 +33,8 @@ Some variations were tried to see if they affected the paint work. The code comm
 * **Start**: 030 - firstLoadURI
 * **End**: 434 - The JS in startup.js that sets up the view. Layouts after this point are expected, not part of this test. The goal is to find savings between firstLoadURI and the startup.js point.
 
+Timeline:
+
 * 034-045 - 11ms: getAppInfo @ AppsService.js:110
 * 058-223 - 165ms: epoll_wait on Content row, the GPU row has around notable 8 notable Composite entries, each around 4ms, some very small (less than 1ms) Composite entries too. Hypothesis: related to the app icon zoom in effect when tapping on an app icon from the home screen.
 * 239-284 - 45ms: Some script work relatied to user customizations and CSP:
